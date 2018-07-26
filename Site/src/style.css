@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #80d6ff;
+}
+
+.header {
+    position: fixed;
+    float: top;
+    height: 60px;
+    width: 100%;
+    z-index: 100;
+    background-color: #42a5f5;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 30px;
+
+}
+
+.header p {
+    font-size: 18px;
+}
+
+#logo {
+    position: relative;
+    float: left;
+}
+
+#logo img {
+    height: 50px;
+}
+
+#author {
+    position: relative;
+    float: left;
+    margin-left: 80px;
+}
+
+#group {
+    position: relative;
+    float: right;
+    margin-right: 30px;
+}
+
+#variant {
+    position: relative;
+    float: right;
+    margin-right: 30px;
+}
+
+.header p {
+    font-family: Impact;
+    color: #0077c2;
+}
+
+.main {
+    height: fit-content;
+    overflow: auto;
+    margin: 0 10px 10px 10px;
+    background-color: #007c91;
+    border-radius: 10px;
+    position: relative;
+    top: 80px;
+    padding: 10px;
+}
+
+#task_text {
+    position: relative;
+    border-radius: 10px;
+    width: 60%;
+    overflow: hidden;
+    float: left;
+    margin-right: 10px;
+}
+
+#text {
+    width: 100%;
+}
+
+#task_area {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+
+
+}
+
+#area {
+    width: 100%;
+}
+
