@@ -9,35 +9,35 @@
 <body>
 <div class="header">
     <div id="logo">
-        <img src="img/logo.png" alt="Логотип кафедры ВТ">
+        <img src="img/logo.png" alt="CS School Logo">
     </div>
     <div id="author">
-        <p>Прокопьев Александр</p>
+        <p>Prokopiev Alexandr</p>
     </div>
 
     <div id="group">
-        <p>Группа P3212</p>
+        <p>Group P3212</p>
     </div>
     <div id="variant">
-        <p>Вариант 228</p>
+        <p>Variant 228</p>
     </div>
 
 </div>
 <div class="main">
     <div id="task_text">
-        <img src="img/task.PNG" id="text" alt="Текст задания лабораторной работы">
+        <img src="img/task.PNG" id="text" alt="Task text">
     </div>
     <div id="task_area">
-        <img src="img/area.PNG" id="area" alt="Изображение области попадания точки">
+        <img src="img/area.PNG" id="area" alt="Task area">
     </div>
 </div>
 <div class="main">
     <form id="calculate" action="handler.php" method="get">
-        <label>Изменение X
+        <label>Variation of X
             <input type="text" name="X" placeholder="(-3 ... 5)" id="x">
             <script src="script.js" async></script>
         </label><br>
-        <label>Изменение Y
+        <label>Variation of Y
             <input type="button" value="-4" name="Y" onclick="set(value)">
             <input type="button" value="-3" name="Y" onclick="set(value)">
             <input type="button" value="-2" name="Y" onclick="set(value)">
@@ -48,7 +48,7 @@
             <input type="button" value="3" name="Y" onclick="set(value)">
             <input type="button" value="4" name="Y" onclick="set(value)">
         </label><br>
-        <label>Изменение R
+        <label>Variation of R
             <input type="radio" name="R" value="one" checked>'1'
             <input type="radio" name="R" value="two">'2'
             <input type="radio" name="R" value="three">'3'
@@ -56,7 +56,7 @@
             <input type="radio" name="R" value="five">'5'
         </label>
         <label>
-            <input type="button" name="send" onclick="check()" value="Рассчитать">
+            <input type="button" name="send" onclick="check()" value="Calculate">
         </label>
     </form>
 </div>

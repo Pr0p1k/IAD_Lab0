@@ -3,8 +3,8 @@ function check() {
     var max = 5;
     var str = document.getElementById("x").value;
     if (/[^0-9.]/.test(str) || Number(str) < min || Number(str) > max) {
-        alert("Некорректно введённое число X");
-    } else if (y == '') alert("Не выбрано значение Y");
+        alert("Value X is not correct");
+    } else if (y == '') alert("Value Y is not chosen");
     else document.getElementById("calculate").submit();
 }
 
