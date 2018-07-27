@@ -32,33 +32,43 @@
     </div>
 </div>
 <div class="main">
-    <form id="calculate" action="handler.php" method="get">
-        <label>Variation of X
-            <input type="text" name="X" placeholder="(-3 ... 5)" id="x">
-            <script src="script.js" async></script>
-        </label><br>
-        <label>Variation of Y
-            <input type="button" value="-4" name="Y" onclick="set(value)">
-            <input type="button" value="-3" name="Y" onclick="set(value)">
-            <input type="button" value="-2" name="Y" onclick="set(value)">
-            <input type="button" value="-1" name="Y" onclick="set(value)">
-            <input type="button" value="0" name="Y" onclick="set(value)">
-            <input type="button" value="1" name="Y" onclick="set(value)">
-            <input type="button" value="2" name="Y" onclick="set(value)">
-            <input type="button" value="3" name="Y" onclick="set(value)">
-            <input type="button" value="4" name="Y" onclick="set(value)">
-        </label><br>
-        <label>Variation of R
-            <input type="radio" name="R" value="one" checked>'1'
-            <input type="radio" name="R" value="two">'2'
-            <input type="radio" name="R" value="three">'3'
-            <input type="radio" name="R" value="four">'4'
-            <input type="radio" name="R" value="five">'5'
-        </label>
-        <label>
-            <input type="button" name="send" onclick="check()" value="Calculate">
-        </label>
-    </form>
+    <div class="data_input">
+        <form id="calculate" action="handler.php" method="get">
+            <div class="elements">
+                <div>
+                    <label>Variation of X
+                        <input type="text" name="X" placeholder="(-3 ... 5)" id="x">
+                        <script src="script.js" async></script>
+                    </label><br>
+                </div>
+                <div>
+                    <label>Variation of Y
+                        <input type="button" class="button" value="-4" name="Y" onclick="set(this)">
+                        <input type="button" class="button" value="-3" name="Y" onclick="set(this)">
+                        <input type="button" class="button" value="-2" name="Y" onclick="set(this)">
+                        <input type="button" class="button" value="-1" name="Y" onclick="set(this)">
+                        <input type="button" class="button" value="0" name="Y" onclick="set(this)">
+                        <input type="button" class="button" value="1" name="Y" onclick="set(this)">
+                        <input type="button" class="button" value="2" name="Y" onclick="set(this)">
+                        <input type="button" class="button" value="3" name="Y" onclick="set(this)">
+                        <input type="button" class="button" value="4" name="Y" onclick="set(this)">
+                    </label><br>
+                </div>
+                <div>
+                    <label>Variation of R
+                        <input type="radio" name="R" value="one" checked>1
+                        <input type="radio" name="R" value="two">2
+                        <input type="radio" name="R" value="three">3
+                        <input type="radio" name="R" value="four">4
+                        <input type="radio" name="R" value="five">5
+                    </label>
+                </div>
+            </div>
+            <div class="send">
+                <input type="button" class="button" name="send" onclick="check()" value="Calculate">
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

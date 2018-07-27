@@ -2,14 +2,20 @@ function check() {
     var min = -3;
     var max = 5;
     var str = document.getElementById("x").value;
-    if (/[^0-9.]/.test(str) || Number(str) < min || Number(str) > max) {
+    if (/[^0-9.]/.test(str) || Number(str) <= min || Number(str) >= max) {
         alert("Value X is not correct");
-    } else if (y == '') alert("Value Y is not chosen");
+    } else if (y == undefined) alert("Value Y is not chosen");
+    else if (str == '') alert("Value X is not entered")
     else document.getElementById("calculate").submit();
 }
 
-var y = '';
+var y;
+var previous;
 
-function set(value) {
-    y = value;
+function set(button) {
+    if (previous != undefined) previous.style.backgroundColor = window
+        .getComputedStyle(document.getElementsByClassName('button').item(0)).backgroundColor;
+    button.style.backgroundColor = 'chartreuse';
+    previous = button;
+    y = button.value;
 }
