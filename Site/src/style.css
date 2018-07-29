@@ -91,14 +91,19 @@ body {
     padding: 10px;
     width: 60%;
     float: left;
+    margin-right: 10px;
 }
 
-.button {
+.btn {
     background-color: #80d6ff;
     padding: 10px;
-    border: none;
     border-radius: 10px;
     font-family: Impact;
+    border: 1px gray solid;
+}
+
+.btn:hover {
+    background-color: darkgoldenrod;
 
 }
 
@@ -115,7 +120,12 @@ body {
     width: 60%;
     margin-right: 10px;
 }
+
 .send {
     position: relative;
 
+}
+
+#computed_result img {
+    width: 100%;
 }

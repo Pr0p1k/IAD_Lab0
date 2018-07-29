@@ -33,7 +33,7 @@
 </div>
 <div class="main">
     <div class="data_input">
-        <form id="calculate" action="handler.php" method="get">
+        <form id="calculate" action="handler.php" method="GET">
             <div class="elements">
                 <div>
                     <label>Variation of X
@@ -43,31 +43,34 @@
                 </div>
                 <div>
                     <label>Variation of Y
-                        <input type="button" class="button" value="-4" name="Y" onclick="set(this)">
-                        <input type="button" class="button" value="-3" name="Y" onclick="set(this)">
-                        <input type="button" class="button" value="-2" name="Y" onclick="set(this)">
-                        <input type="button" class="button" value="-1" name="Y" onclick="set(this)">
-                        <input type="button" class="button" value="0" name="Y" onclick="set(this)">
-                        <input type="button" class="button" value="1" name="Y" onclick="set(this)">
-                        <input type="button" class="button" value="2" name="Y" onclick="set(this)">
-                        <input type="button" class="button" value="3" name="Y" onclick="set(this)">
-                        <input type="button" class="button" value="4" name="Y" onclick="set(this)">
+                        <input type="button" class="btn" value="-4" name="Y" onclick="setY(this)">
+                        <input type="button" class="btn" value="-3" name="Y" onclick="setY(this)">
+                        <input type="button" class="btn" value="-2" name="Y" onclick="setY(this)">
+                        <input type="button" class="btn" value="-1" name="Y" onclick="setY(this)">
+                        <input type="button" class="btn" value="0" name="Y" onclick="setY(this)">
+                        <input type="button" class="btn" value="1" name="Y" onclick="setY(this)">
+                        <input type="button" class="btn" value="2" name="Y" onclick="setY(this)">
+                        <input type="button" class="btn" value="3" name="Y" onclick="setY(this)">
+                        <input type="button" class="btn" value="4" name="Y" onclick="setY(this)">
                     </label><br>
                 </div>
                 <div>
                     <label>Variation of R
-                        <input type="radio" name="R" value="one" checked>1
-                        <input type="radio" name="R" value="two">2
-                        <input type="radio" name="R" value="three">3
-                        <input type="radio" name="R" value="four">4
-                        <input type="radio" name="R" value="five">5
+                        <input type="radio" name="R" value="1" checked>1
+                        <input type="radio" name="R" value="2">2
+                        <input type="radio" name="R" value="3">3
+                        <input type="radio" name="R" value="4">4
+                        <input type="radio" name="R" value="5">5
                     </label>
                 </div>
             </div>
             <div class="send">
-                <input type="button" class="button" name="send" onclick="check()" value="Calculate">
+                <input type="button" class="btn" name="send" onclick="check()" value="Calculate">
             </div>
         </form>
+    </div>
+    <div id="computed_result">
+        <img src="img/areas.png" id="result" alt="Result of script work">
     </div>
 </div>
 </body>
