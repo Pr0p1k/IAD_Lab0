@@ -1,9 +1,12 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
     <title>IAD_Lab0</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="img/logo.png" rel="shortcut icon" type="image/x-icon">
+    <script src="script.js" async></script>
+    <meta name="description" content="Laboratory work on Internet Applications Development">
+    <meta charset="windows-1251">
 </head>
 
 <body>
@@ -19,7 +22,7 @@
         <p>Group P3212</p>
     </div>
     <div id="variant">
-        <p>Variant 228</p>
+        <p>Variant 28214</p>
     </div>
 
 </div>
@@ -33,44 +36,52 @@
 </div>
 <div class="main">
     <div class="data_input">
-        <form id="calculate" action="handler.php" method="GET">
+        <form id="calculate" onsubmit="return check();" action="handler.php" method="GET">
             <div class="elements">
                 <div>
                     <label>Variation of X
-                        <input type="text" name="X" placeholder="(-3 ... 5)" id="x">
-                        <script src="script.js" async></script>
+                        <input type="radio" name="X" value="-3">-3
+                        <input type="radio" name="X" value="-2">-2
+                        <input type="radio" name="X" value="-1">-1
+                        <input type="radio" name="X" value="0">0
+                        <input type="radio" name="X" value="1">1
+                        <input type="radio" name="X" value="2">2
+                        <input type="radio" name="X" value="3">3
+                        <input type="radio" name="X" value="4">4
+                        <input type="radio" name="X" value="5">5
                     </label><br>
                 </div>
                 <div>
                     <label>Variation of Y
-                        <input type="button" class="btn" value="-4" name="Y" onclick="setY(this)">
-                        <input type="button" class="btn" value="-3" name="Y" onclick="setY(this)">
-                        <input type="button" class="btn" value="-2" name="Y" onclick="setY(this)">
-                        <input type="button" class="btn" value="-1" name="Y" onclick="setY(this)">
-                        <input type="button" class="btn" value="0" name="Y" onclick="setY(this)">
-                        <input type="button" class="btn" value="1" name="Y" onclick="setY(this)">
-                        <input type="button" class="btn" value="2" name="Y" onclick="setY(this)">
-                        <input type="button" class="btn" value="3" name="Y" onclick="setY(this)">
-                        <input type="button" class="btn" value="4" name="Y" onclick="setY(this)">
+                        <input type="text" name="Y" placeholder="(-3 ... 3)" id="y">
                     </label><br>
                 </div>
                 <div>
                     <label>Variation of R
-                        <input type="radio" name="R" value="1" checked>1
-                        <input type="radio" name="R" value="2">2
-                        <input type="radio" name="R" value="3">3
-                        <input type="radio" name="R" value="4">4
-                        <input type="radio" name="R" value="5">5
+                        <input type="button" class="btn" value="1" name="R" onclick="setR(this)">
+                        <input type="button" class="btn" value="1.5" name="R" onclick="setR(this)">
+                        <input type="button" class="btn" value="2" name="R" onclick="setR(this)">
+                        <input type="button" class="btn" value="2.5" name="R" onclick="setR(this)">
+                        <input type="button" class="btn" value="3" name="R" onclick="setR(this)">
+                        <input type="hidden" name="R" id="Coord_R">
                     </label>
                 </div>
             </div>
             <div class="send">
-                <input type="button" class="btn" name="send" onclick="check()" value="Calculate">
+                <input type="submit" onclick="draw()" class="btn" value="Check">
             </div>
         </form>
     </div>
     <div id="computed_result">
-        <img src="img/areas.png" id="result" alt="Result of script work">
+        <canvas id="result" width="400" height="400"></canvas>
+    </div>
+    <div id="script_output">
+        <table>
+            <tr>
+                <td>Kek</td>
+                <td>Lol</td>
+            </tr>
+        </table>
     </div>
 </div>
 </body>

@@ -9,8 +9,3 @@ $belongsToArea = false;
 if ($X > 0 & $Y > 0 & $X <= $R & $Y <= $R) $belongsToArea = true;
 elseif ($X > 0 & $Y < 0 & $X * $X + $Y * $Y < $R * $R) $belongsToArea = true;
 elseif ($X < 0 & $Y < 0 & $Y > -2 * $X - $R) $belongsToArea = true;
-$img = imagecreatefrompng("img/area_final.png");
-imagefilledellipse($img, $X / $R * $R_PX + $X_PX, $Y / $R * $R_PX + $Y_PX, 3,
-    3, $belongsToArea ? 255 * 256 : 255 * 65536);
-header('Content-type: image/png');
-ImagePng($img);

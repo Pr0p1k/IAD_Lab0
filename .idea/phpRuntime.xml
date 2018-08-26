@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PhpRuntimeConfiguration" default_stubs_path="C:\php\lib">
+  <component name="PhpRuntimeConfiguration" default_stubs_path="C:\php\ext">
     <extensions>
       <extension name="Parle" enabled="true" />
       <extension name="ZendCache" enabled="true" />

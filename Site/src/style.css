@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #80d6ff;
+    background-color: #64b5f6;
 }
 
 .header {
@@ -10,7 +10,7 @@ body {
     height: 60px;
     width: 100%;
     z-index: 100;
-    background-color: #42a5f5;
+    background-color: #2286c3;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 30px;
@@ -49,20 +49,21 @@ body {
 }
 
 .header p {
-    font-family: Impact;
-    color: #0077c2;
+    font-family: sans-serif;
+    color: black;
+    font-weight: bold;
 }
 
 .main {
-    opacity: 50%;
     height: fit-content;
     overflow: auto;
     margin: 0 10px 10px 10px;
-    background-color: #007c91;
+    background-color: #9be7ff;
     border-radius: 10px;
     position: relative;
     top: 80px;
     padding: 10px;
+    box-shadow: 0 0 8px #2286c3;
 }
 
 #task_text {
@@ -87,9 +88,8 @@ body {
 }
 
 .data_input {
-    background-color: #0077c2;
-    padding: 10px;
-    width: 60%;
+    background-color: #2286c3;
+
     float: left;
     margin-right: 10px;
 }
@@ -98,34 +98,50 @@ body {
     background-color: #80d6ff;
     padding: 10px;
     border-radius: 10px;
-    font-family: Impact;
+    font-family: sans-serif;
     border: 1px gray solid;
-}
-
-.btn:hover {
-    background-color: darkgoldenrod;
-
 }
 
 .elements div {
     padding: 5px;
-    border: 2px gray dotted;
-    margin-bottom: 10px;
+    border: 2px black dotted;
+    margin: 15px;
 
 }
 
 .elements {
-    font-family: Impact;
-    float: left;
-    width: 60%;
+    font-family: sans-serif;
+    float: top;
     margin-right: 10px;
 }
 
 .send {
+    position: center;
+}
+
+#computed_result {
+    background-color: white;
+    width: auto;
+    height: fit-content;
+}
+
+#computed_result {
+    width: 400px;
+    height: 400px;
     position: relative;
-
+    float: left;
 }
 
-#computed_result img {
+#computed_result canvas {
     width: 100%;
+    height: 100%;
 }
+
+#script_output {
+
+}
+
+.btn:hover {
+    background-color: #9be7ff;
+}
+
