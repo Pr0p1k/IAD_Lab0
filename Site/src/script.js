@@ -1,17 +1,13 @@
+let x, y, r;
+
 function check() {
-    var min = -3;
-    var max = 3;
-    var r = document.getElementById("Coord_R").value;
-    var y = document.getElementById("y").value;
-    var x = document.getElementsByName("X");
-    var xChecked = false;
-    for (var i = 0; i < x.length; i++) {
-        if (x[i].checked) {
-            xChecked = true;
-            break;
-        }
-    }
-    if (isNaN(y) || Number(y) <= min || Number(y) >= max || y == '') {
+    let min = -3;
+    let max = 3;
+    r = document.getElementById("Coord_R").value;
+    y = document.getElementById("y").value;
+    x = document.getElementsByName("X");
+    let xChecked = Array.from(x).some(item => item.checked);
+    if (isNaN(y) || Number(y) <= min || Number(y) >= max || y === '') {
         alert("Invalid Y value");
         return false;
     } else if (isNaN(r)) {
@@ -23,24 +19,28 @@ function check() {
     } else return true;
 }
 
-var color = window.getComputedStyle(document
+let color = window.getComputedStyle(document
     .getElementsByClassName("btn").item(0)).backgroundColor;
-var previous;
+let previous;
 
 function setR(button) {
-    if (previous != undefined) previous.style.backgroundColor = color;
+    if (previous !== undefined) previous.style.backgroundColor = color;
     button.style.backgroundColor = 'chartreuse';
     document.getElementById("Coord_R").value = button.value;
     previous = button;
 }
 
 function draw() {
-    var canvas = document.getElementById("result");
-    var context = canvas.getContext("2d");
-    var width = canvas.width;
-    var height = canvas.height;
+    let canvas = document.getElementById("result");
+    let context = canvas.getContext("2d");
+    let width = canvas.width;
+    let height = canvas.height;
+    drawArea(canvas, context, width, height);
+    drawLines(canvas, context, width, height);
+}
 
-    context.clearRect(0, 0, width, height);
+function drawLines(canvas, context, width, height) {
+    context.fillStyle = "black";
     context.beginPath();
     context.moveTo(width / 2, height);
     context.lineTo(width / 2, 0);
@@ -57,32 +57,53 @@ function draw() {
 
     context.moveTo(width * 0.1, height / 2 + height * 0.01);
     context.lineTo(width * 0.1, height / 2 - height * 0.01);
+    context.fillText(-r, width * 0.1, height * 0.53);
 
     context.moveTo(width * 0.3, height / 2 + height * 0.01);
     context.lineTo(width * 0.3, height / 2 - height * 0.01);
+    context.fillText(-r / 2, width * 0.3, height * 0.53);
+
+    context.fillText(0, width * 0.51, height * 0.53);
 
     context.moveTo(width * 0.7, height / 2 + height * 0.01);
     context.lineTo(width * 0.7, height / 2 - height * 0.01);
+    context.fillText(r / 2, width * 0.7, height * 0.53);
 
     context.moveTo(width * 0.9, height / 2 + height * 0.01);
     context.lineTo(width * 0.9, height / 2 - height * 0.01);
+    context.fillText(r, width * 0.9, height * 0.53);
 
     context.moveTo(width / 2 + width * 0.01, height * 0.1);
     context.lineTo(width / 2 - width * 0.01, height * 0.1);
+    context.fillText(r, width * 0.53, height * 0.1);
 
     context.moveTo(width / 2 + width * 0.01, height * 0.3);
     context.lineTo(width / 2 - width * 0.01, height * 0.3);
+    context.fillText(r / 2, width * 0.53, height * 0.3);
 
     context.moveTo(width / 2 + width * 0.01, height * 0.7);
     context.lineTo(width / 2 - width * 0.01, height * 0.7);
+    context.fillText(-r / 2, width * 0.53, height * 0.7);
 
     context.moveTo(width / 2 + width * 0.01, height * 0.9);
     context.lineTo(width / 2 - width * 0.01, height * 0.9);
+    context.fillText(-r, width * 0.53, height * 0.9);
 
     context.closePath();
-    context.text
     context.strokeStyle = "black";
-    context.fillStyle = "black";
-
     context.stroke();
+}
+
+function drawArea(canvas, context, width, height) {
+    context.clearRect(0, 0, width, height);
+    context.fillStyle = "#3399ff";
+    context.fillRect(width * 0.1, height / 2, width * 0.4, height * 0.2);
+    context.beginPath();
+    context.moveTo(width * 0.5, height * 0.1);
+    context.lineTo(width * 0.9, height * 0.5);
+    context.lineTo(width * 0.5, height * 0.5);
+    context.fill();
+    context.beginPath();
+    context.arc(width / 2, height / 2, width * 0.2, 0, Math.PI, true);
+    context.fill();
 }

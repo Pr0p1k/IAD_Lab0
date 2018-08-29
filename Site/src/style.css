@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #64b5f6;
+    font-size: 16px;
 }
 
 .header {
@@ -130,6 +131,7 @@ body {
     height: 400px;
     position: relative;
     float: left;
+    margin-right: 10px;
 }
 
 #computed_result canvas {
@@ -137,11 +139,31 @@ body {
     height: 100%;
 }
 
-#script_output {
-
-}
-
 .btn:hover {
     background-color: #9be7ff;
+}
+
+#script_output {
+    background-color: wheat;
+    padding: 10px;
+}
+
+#script_output > table {
+    margin: auto;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+table, td, tr {
+    border: 2px black solid;
+    border-spacing: initial;
+    border-collapse: collapse;
+}
+
+#y {
+    border-radius: 3px;
+    border: none;
+    padding: 3px;
+    background-color: white;
 }
 
