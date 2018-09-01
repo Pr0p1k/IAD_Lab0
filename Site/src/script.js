@@ -137,6 +137,13 @@ function compute() {
             row.append($('<td/>').text(leadTime));
             row.append($('<td/>').text(result));
             table.append(row);
+        },
+        error: function (data) {
+            let table = $(document).find("#table_result");
+            let row = $("<tr/>");
+            let cell = $("<td colspan='3'/>").text("Error occurred");
+            row.append(cell);
+            table.append(row);
         }
     });
 }

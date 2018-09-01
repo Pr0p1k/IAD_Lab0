@@ -106,7 +106,7 @@ body {
 .elements div {
     padding: 5px;
     border: 2px black dotted;
-    margin: 15px;
+    margin: 10px;
 
 }
 
@@ -117,7 +117,8 @@ body {
 }
 
 .send {
-    position: center;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 #computed_result {
@@ -166,4 +167,3 @@ table, td, tr {
     padding: 3px;
     background-color: white;
 }
-
