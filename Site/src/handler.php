@@ -1,11 +1,14 @@
 <?php
-$R_PX = 120;    //R value in pixels
-$X_PX = 166;    //X coordinate of center
-$Y_PX = 166;    //Y coordinate of center
+@session_start();
+$start = microtime(true);
 $X = $_REQUEST['X'];
-$Y = 2; //$_REQUEST['Y0'];
+$Y = $_REQUEST['Y'];
 $R = $_REQUEST['R'];
 $belongsToArea = false;
-if ($X > 0 & $Y > 0 & $X <= $R & $Y <= $R) $belongsToArea = true;
-elseif ($X > 0 & $Y < 0 & $X * $X + $Y * $Y < $R * $R) $belongsToArea = true;
-elseif ($X < 0 & $Y < 0 & $Y > -2 * $X - $R) $belongsToArea = true;
+$currentTime = date("H:i:s", strtotime('+3 hour'));
+if ($X > 0 & $Y > 0 & $Y < -$X + $R) $belongsToArea = true;
+elseif ($X <= 0 & $Y >= 0 & $X != $Y & $X * $X + $Y * $Y < $R * $R / 4) $belongsToArea = true;
+elseif ($X < 0 & $Y < 0 & $X > -$R & $Y > -$R / 2) $belongsToArea = true;
+$end = microtime(true) - $start;
+echo "$currentTime\n$end\n";
+echo $belongsToArea ? 'true' : 'false';

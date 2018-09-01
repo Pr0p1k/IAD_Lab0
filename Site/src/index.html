@@ -4,9 +4,11 @@
     <title>IAD_Lab0</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="img/logo.png" rel="shortcut icon" type="image/x-icon">
-    <script src="script.js" async></script>
+    <script src="jquery-3.3.1.min.js" defer></script>
+    <script src="script.js" defer></script>
     <meta name="description" content="Laboratory work on Internet Applications Development">
     <meta charset="windows-1251">
+
 </head>
 
 <body>
@@ -68,7 +70,7 @@
                 </div>
             </div>
             <div class="send">
-                <input type="submit" onclick="draw()" class="btn" value="Check">
+                <input type="submit" class="btn" value="Check">
             </div>
         </form>
     </div>
@@ -76,14 +78,14 @@
         <canvas id="result" width="400" height="400"></canvas>
     </div>
     <div id="script_output">
-        <table>
+        <table id="table_result">
             <caption>Output of the script</caption>
             <thead>
-                <tr>
-                    <td>Time of start</td>
-                    <td>Lead time</td>
-                    <td>Point hitting</td>
-                </tr>
+            <tr>
+                <td>Time of start</td>
+                <td>Lead time</td>
+                <td>Point hitting</td>
+            </tr>
             </thead>
         </table>
     </div>

@@ -5,18 +5,24 @@ function check() {
     let max = 3;
     r = document.getElementById("Coord_R").value;
     y = document.getElementById("y").value;
-    x = document.getElementsByName("X");
-    let xChecked = Array.from(x).some(item => item.checked);
+    let xArr = document.getElementsByName("X");
+    let xChecked = Array.from(xArr).some(function (item) {
+        if (item.checked) {
+            x = item.value;
+            return true;
+        }
+    });
     if (isNaN(y) || Number(y) <= min || Number(y) >= max || y === '') {
         alert("Invalid Y value");
         return false;
     } else if (isNaN(r)) {
         alert("Value R is not selected");
-        return false
+        return false;
     } else if (!xChecked) {
         alert("Value X is not selected");
         return false;
-    } else return true;
+    } else compute();
+    return false;
 }
 
 let color = window.getComputedStyle(document
@@ -37,6 +43,7 @@ function draw() {
     let height = canvas.height;
     drawArea(canvas, context, width, height);
     drawLines(canvas, context, width, height);
+    drawDot(canvas, context, width, height);
 }
 
 function drawLines(canvas, context, width, height) {
@@ -106,4 +113,30 @@ function drawArea(canvas, context, width, height) {
     context.beginPath();
     context.arc(width / 2, height / 2, width * 0.2, 0, Math.PI, true);
     context.fill();
+}
+
+function drawDot(canvas, context, width, height) {
+    context.fillRect(width / 2 + width * 0.4 * x / r - 2, height / 2 - width * 0.4 * y / r - 2, 4, 4);
+
+}
+
+function compute() {
+    draw();
+    $.ajax({
+        url: 'handler.php',
+        type: 'GET',
+        data: {X: x, Y: y, R: r},
+        success: function (data) {
+            console.log(x + " " + y + " " + r + ";\n");
+            let table = $(document).find("#table_result");
+            let currentTime = data.split("\n")[0];
+            let leadTime = data.split("\n")[1];
+            let result = data.split("\n")[2];
+            let row = $("<tr/>");
+            row.append($('<td/>').text(currentTime));
+            row.append($('<td/>').text(leadTime));
+            row.append($('<td/>').text(result));
+            table.append(row);
+        }
+    });
 }
