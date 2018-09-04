@@ -1,6 +1,14 @@
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('send').addEventListener('click', check);
+    let canvas = document.getElementById('result');
+    let width = parseInt(window.getComputedStyle(document.getElementById('computed_result')).width);
+    canvas.width = width;
+    canvas.height = width;
+});
 let x, y, r;
 
-function check() {
+function check(btn) {
+    btn.preventDefault();
     let min = -3;
     let max = 3;
     r = document.getElementById("Coord_R").value;
@@ -12,17 +20,27 @@ function check() {
             return true;
         }
     });
+    let passed = true;
+    y = y.replace(",", ".");
     if (isNaN(y) || Number(y) <= min || Number(y) >= max || y === '') {
-        alert("Invalid Y value");
-        return false;
-    } else if (isNaN(r)) {
-        alert("Value R is not selected");
-        return false;
-    } else if (!xChecked) {
-        alert("Value X is not selected");
-        return false;
-    } else compute();
-    return false;
+        if (!document.getElementById("Y_input").classList.contains("error"))
+            document.getElementById("Y_input").classList.add("error");
+        passed = false;
+    }
+    else document.getElementById("Y_input").classList.remove("error");
+    if (isNaN(r)) {
+        if (!document.getElementById("R_input").classList.contains("error"))
+            document.getElementById("R_input").classList.add("error");
+        passed = false;
+    }
+    else document.getElementById("R_input").classList.remove("error");
+    if (!xChecked) {
+        if (!document.getElementById("X_input").classList.contains("error"))
+            document.getElementById("X_input").classList.add("error");
+        passed = false;
+    }
+    else document.getElementById("X_input").classList.remove("error");
+    if (passed) compute();
 }
 
 let color = window.getComputedStyle(document
@@ -116,8 +134,10 @@ function drawArea(canvas, context, width, height) {
 }
 
 function drawDot(canvas, context, width, height) {
-    context.fillRect(width / 2 + width * 0.4 * x / r - 2, height / 2 - width * 0.4 * y / r - 2, 4, 4);
-
+    let radius = width / 100;
+    let X = width / 2 + width * 0.4 * x / r - radius / 2;
+    let Y = height / 2 - height * 0.4 * y / r - radius / 2;
+    context.fillRect(X, Y, radius, radius);
 }
 
 function compute() {
@@ -138,7 +158,7 @@ function compute() {
             row.append($('<td/>').text(result));
             table.append(row);
         },
-        error: function (data) {
+        error: function () {
             let table = $(document).find("#table_result");
             let row = $("<tr/>");
             let cell = $("<td colspan='3'/>").text("Error occurred");

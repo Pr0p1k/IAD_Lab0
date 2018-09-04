@@ -37,57 +37,59 @@
     </div>
 </div>
 <div class="main">
-    <div class="data_input">
-        <form id="calculate" onsubmit="return check();" action="handler.php" method="GET">
-            <div class="elements">
-                <div>
-                    <label>Variation of X
-                        <input type="radio" name="X" value="-3">-3
-                        <input type="radio" name="X" value="-2">-2
-                        <input type="radio" name="X" value="-1">-1
-                        <input type="radio" name="X" value="0">0
-                        <input type="radio" name="X" value="1">1
-                        <input type="radio" name="X" value="2">2
-                        <input type="radio" name="X" value="3">3
-                        <input type="radio" name="X" value="4">4
-                        <input type="radio" name="X" value="5">5
-                    </label><br>
+    <div class="io">
+        <div class="data_input">
+            <form id="calculate" method="GET">
+                <div class="elements">
+                    <div id="X_input">
+                        <label><span>Variation of X</span>
+                            <input type="radio" name="X" value="-3">-3
+                            <input type="radio" name="X" value="-2">-2
+                            <input type="radio" name="X" value="-1">-1
+                            <input type="radio" name="X" value="0">0
+                            <input type="radio" name="X" value="1">1
+                            <input type="radio" name="X" value="2">2
+                            <input type="radio" name="X" value="3">3
+                            <input type="radio" name="X" value="4">4
+                            <input type="radio" name="X" value="5">5
+                        </label><br>
+                    </div>
+                    <div id="Y_input">
+                        <label><span>Variation of Y</span>
+                            <input type="text" name="Y" placeholder="(-3 ... 3)" id="y">
+                        </label><br>
+                    </div>
+                    <div id="R_input">
+                        <label><span>Variation of R</span>
+                            <input type="button" class="btn" value="1" name="R" onclick="setR(this)">
+                            <input type="button" class="btn" value="1.5" name="R" onclick="setR(this)">
+                            <input type="button" class="btn" value="2" name="R" onclick="setR(this)">
+                            <input type="button" class="btn" value="2.5" name="R" onclick="setR(this)">
+                            <input type="button" class="btn" value="3" name="R" onclick="setR(this)">
+                            <input type="hidden" name="R" id="Coord_R" value="null">
+                        </label>
+                    </div>
                 </div>
-                <div>
-                    <label>Variation of Y
-                        <input type="text" name="Y" placeholder="(-3 ... 3)" id="y">
-                    </label><br>
+                <div class="send">
+                    <input type="submit" id="send" class="btn" value="Check">
                 </div>
-                <div>
-                    <label>Variation of R
-                        <input type="button" class="btn" value="1" name="R" onclick="setR(this)">
-                        <input type="button" class="btn" value="1.5" name="R" onclick="setR(this)">
-                        <input type="button" class="btn" value="2" name="R" onclick="setR(this)">
-                        <input type="button" class="btn" value="2.5" name="R" onclick="setR(this)">
-                        <input type="button" class="btn" value="3" name="R" onclick="setR(this)">
-                        <input type="hidden" name="R" id="Coord_R">
-                    </label>
-                </div>
-            </div>
-            <div class="send">
-                <input type="submit" class="btn" value="Check">
-            </div>
-        </form>
+            </form>
+        </div>
+        <div id="script_output">
+            <table id="table_result">
+                <caption>Output of the script</caption>
+                <thead>
+                <tr>
+                    <td>Time of start</td>
+                    <td>Lead time</td>
+                    <td>Point hitting</td>
+                </tr>
+                </thead>
+            </table>
+        </div>
     </div>
     <div id="computed_result">
-        <canvas id="result" width="400" height="400"></canvas>
-    </div>
-    <div id="script_output">
-        <table id="table_result">
-            <caption>Output of the script</caption>
-            <thead>
-            <tr>
-                <td>Time of start</td>
-                <td>Lead time</td>
-                <td>Point hitting</td>
-            </tr>
-            </thead>
-        </table>
+        <canvas id="result"></canvas>
     </div>
 </div>
 </body>
