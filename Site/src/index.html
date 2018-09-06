@@ -1,30 +1,29 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>IAD_Lab0</title>
+    <title>ПИП</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="img/logo.png" rel="shortcut icon" type="image/x-icon">
     <script src="jquery-3.3.1.min.js" defer></script>
     <script src="script.js" defer></script>
-    <meta name="description" content="Laboratory work on Internet Applications Development">
+    <meta name="description" content="Лабораторная работа по программированию интернет приложений">
     <meta charset="windows-1251">
-
 </head>
 
 <body>
 <div class="header">
     <div id="logo">
-        <img src="img/logo.png" alt="CS School Logo">
+        <img src="img/logo.png" alt="Логотип ВТ">
     </div>
     <div id="author">
-        <p>Prokopiev Alexandr</p>
+        <p>Прокопьев Александр</p>
     </div>
 
     <div id="group">
-        <p>Group P3212</p>
+        <p>Группа P3212</p>
     </div>
     <div id="variant">
-        <p>Variant 28214</p>
+        <p>Вариант 28214</p>
     </div>
 
 </div>
@@ -42,7 +41,7 @@
             <form id="calculate" method="GET">
                 <div class="elements">
                     <div id="X_input">
-                        <label><span>Variation of X</span>
+                        <label><span>Величина X</span>
                             <input type="radio" name="X" value="-3">-3
                             <input type="radio" name="X" value="-2">-2
                             <input type="radio" name="X" value="-1">-1
@@ -55,12 +54,12 @@
                         </label><br>
                     </div>
                     <div id="Y_input">
-                        <label><span>Variation of Y</span>
+                        <label><span>Величина Y</span>
                             <input type="text" name="Y" placeholder="(-3 ... 3)" id="y">
                         </label><br>
                     </div>
                     <div id="R_input">
-                        <label><span>Variation of R</span>
+                        <label><span>Величина R</span>
                             <input type="button" class="btn" value="1" name="R" onclick="setR(this)">
                             <input type="button" class="btn" value="1.5" name="R" onclick="setR(this)">
                             <input type="button" class="btn" value="2" name="R" onclick="setR(this)">
@@ -71,18 +70,21 @@
                     </div>
                 </div>
                 <div class="send">
-                    <input type="submit" id="send" class="btn" value="Check">
+                    <input type="submit" id="send" class="btn" value="Проверить">
                 </div>
             </form>
         </div>
         <div id="script_output">
             <table id="table_result">
-                <caption>Output of the script</caption>
+                <caption>Результат работы скрипта</caption>
                 <thead>
                 <tr>
-                    <td>Time of start</td>
-                    <td>Lead time</td>
-                    <td>Point hitting</td>
+                    <td>X</td>
+                    <td>Y</td>
+                    <td>R</td>
+                    <td>Время начала</td>
+                    <td>Время работы</td>
+                    <td>Попадание</td>
                 </tr>
                 </thead>
             </table>
@@ -91,6 +93,10 @@
     <div id="computed_result">
         <canvas id="result"></canvas>
     </div>
+</div>
+<div class="main" id="footer">
+    <p id="educator">Письмак А.Е.</p>
+    <p id="info">Санкт-Петербург 2018 год</p>
 </div>
 </body>
 </html>

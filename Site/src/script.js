@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let width = parseInt(window.getComputedStyle(document.getElementById('computed_result')).width);
     canvas.width = width;
     canvas.height = width;
+
 });
 let x, y, r;
 
@@ -23,20 +24,17 @@ function check(btn) {
     let passed = true;
     y = y.replace(",", ".");
     if (isNaN(y) || Number(y) <= min || Number(y) >= max || y === '') {
-        if (!document.getElementById("Y_input").classList.contains("error"))
-            document.getElementById("Y_input").classList.add("error");
+        document.getElementById("Y_input").classList.add("error");
         passed = false;
     }
     else document.getElementById("Y_input").classList.remove("error");
     if (isNaN(r)) {
-        if (!document.getElementById("R_input").classList.contains("error"))
-            document.getElementById("R_input").classList.add("error");
+        document.getElementById("R_input").classList.add("error");
         passed = false;
     }
     else document.getElementById("R_input").classList.remove("error");
     if (!xChecked) {
-        if (!document.getElementById("X_input").classList.contains("error"))
-            document.getElementById("X_input").classList.add("error");
+        document.getElementById("X_input").classList.add("error");
         passed = false;
     }
     else document.getElementById("X_input").classList.remove("error");
@@ -152,7 +150,14 @@ function compute() {
             let currentTime = data.split("\n")[0];
             let leadTime = data.split("\n")[1];
             let result = data.split("\n")[2];
+            let au = new Audio();
+            if (result === "true") au.src = 'sound/true.mp3';
+            else au.src = 'sound/false.mp3';
+            au.play();
             let row = $("<tr/>");
+            row.append($('<td/>').text(x));
+            row.append($('<td/>').text(y));
+            row.append($('<td/>').text(r));
             row.append($('<td/>').text(currentTime));
             row.append($('<td/>').text(leadTime));
             row.append($('<td/>').text(result));
@@ -161,7 +166,7 @@ function compute() {
         error: function () {
             let table = $(document).find("#table_result");
             let row = $("<tr/>");
-            let cell = $("<td colspan='3'/>").text("Error occurred");
+            let cell = $("<td colspan='6'/>").text("Произошла ошибка");
             row.append(cell);
             table.append(row);
         }
