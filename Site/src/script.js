@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let width = parseInt(window.getComputedStyle(document.getElementById('computed_result')).width);
     canvas.width = width;
     canvas.height = width;
-
 });
 let x, y, r;
 
