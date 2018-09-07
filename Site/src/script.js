@@ -24,19 +24,31 @@ function check(btn) {
     y = y.replace(",", ".");
     if (isNaN(y) || Number(y) <= min || Number(y) >= max || y === '') {
         document.getElementById("Y_input").classList.add("error");
+        document.getElementById("Y_comment").classList.replace("ok_comment", "error_comment");
         passed = false;
     }
-    else document.getElementById("Y_input").classList.remove("error");
+    else {
+        document.getElementById("Y_input").classList.remove("error");
+        document.getElementById("Y_comment").classList.replace("error_comment", "ok_comment");
+    }
     if (isNaN(r)) {
         document.getElementById("R_input").classList.add("error");
+        document.getElementById("R_comment").classList.replace("ok_comment", "error_comment");
         passed = false;
     }
-    else document.getElementById("R_input").classList.remove("error");
+    else {
+        document.getElementById("R_input").classList.remove("error")
+        document.getElementById("R_comment").classList.replace("error_comment", "ok_comment");
+    }
     if (!xChecked) {
         document.getElementById("X_input").classList.add("error");
+        document.getElementById("X_comment").classList.replace("ok_comment", "error_comment");
         passed = false;
     }
-    else document.getElementById("X_input").classList.remove("error");
+    else {
+        document.getElementById("X_input").classList.remove("error");
+        document.getElementById("X_comment").classList.replace("error_comment", "ok_comment");
+    }
     if (passed) compute();
 }
 
@@ -165,7 +177,7 @@ function compute() {
         error: function () {
             let table = $(document).find("#table_result");
             let row = $("<tr/>");
-            let cell = $("<td colspan='6'/>").text("Произошла ошибка");
+            let cell = $("<td colspan='6'/>").text("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°");
             row.append(cell);
             table.append(row);
         }
